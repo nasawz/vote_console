@@ -145,195 +145,30 @@ class AppMenu extends React.Component<any, any> {
         onClick={this.onMenuItemClick}
         selectedKeys={[currentPathname]}
       >
-        <Menu.Item key="/app/dashboard">
-          <Button className="nav-item" href="#/app/dashboard">
-            <MaterialIcon icon="dashboard" />
-            <span className="nav-text">Dashboard</span>
+        <Menu.Item key="/app/modify">
+          <Button className="nav-item" href="#/app/modify">
+            <MaterialIcon icon="how_to_vote" />
+            <span className="nav-text">编辑投票</span>
           </Button>
         </Menu.Item>
-        <Menu.Item key="/app/ui-overview">
-          <Button className="nav-item" href="#/app/ui-overview">
-            <MaterialIcon icon="store" />
-            <span className="nav-text">Material UI</span>
-            <span className="nav-badge nav-badge-icon badge-right ml-1">
-              <MaterialIcon icon="stars" className="m-0 text-warning" />
-            </span>
+        <Menu.Item key="/app/result">
+          <Button className="nav-item" href="#/app/result">
+            <MaterialIcon icon="ballot" />
+            <span className="nav-text">投票结果</span>
           </Button>
         </Menu.Item>
-        <SubMenu
-          key="/app/layout"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="web" />
-              <span className="nav-text">Layouts</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/app/foundation"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="text_fields" />
-              <span className="nav-text">Foundation</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/app/card"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="credit_card" />
-              <span className="nav-text">Cards</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/app/ui"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="card_giftcard" />
-              <span className="nav-text">UI Components</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/app/form"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="edit" />
-              <span className="nav-text">Forms</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/app/feedback"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="notifications_none" />
-              <span className="nav-text">Feedbacks</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/app/table"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="view_list" />
-              <span className="nav-text">Tables</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/app/chart"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="bar_chart" />
-              <span className="nav-text">Charts</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <Menu.Item key="/app/calendar">
-          <Button className="nav-item" href="#/app/calendar">
-            <MaterialIcon icon="calendar_today" />
-            <span className="nav-text">Calendar</span>
+        <Menu.Item key="/app/count">
+          <Button className="nav-item" href="#/app/count">
+            <MaterialIcon icon="poll" />
+            <span className="nav-text">统计分析</span>
           </Button>
         </Menu.Item>
-        <Menu.Divider />
-        <SubMenu
-          key="/app/page"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="pages" />
-              <span className="nav-text">Pages</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/app/ecommerce"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="add_shopping_cart" />
-              <span className="nav-text">eCommerce</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/user"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="person_outline" />
-              <span className="nav-text">Account</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <SubMenu
-          key="/exception"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="error_outline" />
-              <span className="nav-text">Exception</span>
-            </Button>
-          }
-        >
-          {this.getNavMenuItems(null)}
-        </SubMenu>
-        <Menu.Divider />
-        <SubMenu
-          key="/app/menu"
-          title={
-            <Button className="nav-item">
-              <MaterialIcon icon="sort" />
-              <span className="nav-text">Menu Levels</span>
-            </Button>
-          }
-        >
-          <Menu.Item key="level21">
-            <Button className="nav-item" href={DEMO.link}>
-              <span>Level 2</span>
-            </Button>
-          </Menu.Item>
-          <SubMenu key="level22" title={<Button className="nav-item">Level 2</Button>}>
-            <Menu.Item key="level31">
-              <Button className="nav-item" href={DEMO.link}>
-                <span>Level 3</span>
-              </Button>
-            </Menu.Item>
-            <SubMenu key="level32" title={<Button className="nav-item">Level 3</Button>}>
-              <Menu.Item key="level41">
-                <Button className="nav-item" href={DEMO.link}>
-                  <span>Level 4</span>
-                </Button>
-              </Menu.Item>
-              <Menu.Item key="level42">
-                <Button className="nav-item" href={DEMO.link}>
-                  <span>Level 4</span>
-                </Button>
-              </Menu.Item>
-            </SubMenu>
-          </SubMenu>
-        </SubMenu>
+        <Menu.Item key="/app/signup-info">
+          <Button className="nav-item" href="#/app/signup-info">
+            <MaterialIcon icon="people" />
+            <span className="nav-text">报名信息</span>
+          </Button>
+        </Menu.Item>
       </Menu>
     );
   }

@@ -62,7 +62,7 @@ class AppSidenav extends React.Component<any, any> {
           <a target="_blank" href={DEMO.productLink}>
             <MaterialIcon icon="help" className="nav-icon" />
             <span className="nav-text">
-              <span>Help</span> & <span>Support</span>
+              <span>帮助</span> & <span>支持</span>
             </span>
           </a>
         </div>

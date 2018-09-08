@@ -9,7 +9,7 @@ const AppFooter = () => (
   <Footer className="app-footer app-footer-custom">
     <div className="footer-inner-v1">
       <span className="small">
-        © {year}
+        © {year}{' '}
         <a className="brand" target="_blank" href={DEMO.productLink}>
           {'VOTE'}
         </a>

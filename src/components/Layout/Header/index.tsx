@@ -75,11 +75,6 @@ class AppHeader extends React.Component<any, any> {
               >
                 <MaterialIcon icon="menu" className="list-icon" />
               </a>
-              <Tooltip placement="bottom" title="Material UI">
-                <a href="#/app/ui-overview" className="list-inline-item d-none d-md-inline-block">
-                  <MaterialIcon icon="store" className="list-icon" />
-                </a>
-              </Tooltip>
             </div>
           </div>
 
@@ -90,7 +85,7 @@ class AppHeader extends React.Component<any, any> {
                   <div className="search-box-icon">
                     <MaterialIcon icon="search" />
                   </div>
-                  <input type="text" placeholder="search..." />
+                  <input type="text" placeholder="搜索..." />
                   <span className="input-bar" />
                 </div>
               </li>
@@ -123,35 +118,25 @@ class AppHeader extends React.Component<any, any> {
                   open={Boolean(anchorEl)}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose} className="d-block d-md-none">
-                    <div>
-                      Signed in as <strong>{DEMO.user}</strong>
-                    </div>
-                  </MenuItem>
                   <div className="divider divider-solid my-1 d-block d-md-none" />
-                  <MenuItem disabled>
-                    <a href={DEMO.link}>
-                      <MaterialIcon icon="settings" />
-                      Settings
-                    </a>
-                  </MenuItem>
+
                   <MenuItem onClick={this.handleClose}>
                     <a href={DEMO.headerLink.about}>
                       <MaterialIcon icon="info" />
-                      About
+                      关于
                     </a>
                   </MenuItem>
                   <MenuItem onClick={this.handleClose}>
                     <a href={DEMO.headerLink.help}>
                       <MaterialIcon icon="help" />
-                      Need Help?
+                      帮助
                     </a>
                   </MenuItem>
                   <div className="divider divider-solid my-1" />
                   <MenuItem onClick={this.handleClose}>
                     <a href={DEMO.headerLink.signOut}>
                       <MaterialIcon icon="forward" />
-                      Sign out
+                      退出
                     </a>
                   </MenuItem>
                 </Menu>
@@ -173,7 +158,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = ({ settings: { toggleCollapsedNav, toggleOffCanvasMobileNav } }) => ({
   handleToggleCollapsedNav: (isCollapsedNav) => {
-    console.log('--------------', isCollapsedNav);
     toggleCollapsedNav(isCollapsedNav);
   },
   handleToggleOffCanvasMobileNav: (isOffCanvasMobileNav) => {
