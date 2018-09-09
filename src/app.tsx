@@ -17,7 +17,12 @@ import './styles/layout.scss';
 import './styles/theme.scss';
 import './styles/ui.scss';
 
-import AppLayout from './components/Layout/AppLayout';
+let Account = loadable({
+  loader: () => import(/* webpackChunkName: "user" */ './modules/user/index'),
+  loading: LoadingComponent
+});
+
+import Vote from './modules/vote';
 
 export interface AppProps {
   match;
@@ -26,11 +31,12 @@ export interface AppProps {
 }
 
 class App extends React.Component<AppProps, any> {
+  componentDidMount() {}
   public render() {
     const { match, location, theme } = this.props;
     const isRoot = location.pathname === '/' ? true : false;
     if (isRoot) {
-      return <Redirect to={'/app/dashboard'} />;
+      return <Redirect to={'/vote/modify'} />;
     }
     let materialUITheme;
     switch (theme) {
@@ -53,10 +59,8 @@ class App extends React.Component<AppProps, any> {
             'theme-dark': theme === 'dark'
           })}
         >
-          <Route path={`${match.url}app`} component={AppLayout} />
-          {/* 
-      <Route path={`${match.url}exception`} component={Exception} />
-      <Route path={`${match.url}user`} component={Account} /> */}
+          <Route path={`${match.url}vote`} component={Vote} />
+          <Route path={`${match.url}user`} component={Account} />
         </div>
       </MuiThemeProvider>
     );
@@ -68,5 +72,9 @@ const mapState2Props = (state) => {
     theme: state.settings.theme
   };
 };
+
+const mapDispatch = ({ location: { changeLocation } }) => ({
+  changeLocation: (location) => changeLocation(location)
+});
 
 export default connect(mapState2Props)(App);

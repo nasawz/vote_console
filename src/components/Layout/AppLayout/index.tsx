@@ -9,20 +9,26 @@ import ContentOnly from './ContentOnly';
 import HeaderContentFooter from './HeaderContentFooter';
 
 class AppLayout extends React.Component<any, any> {
-  updateLayout(layout, boxedLayout, fixedSidenav, fixedHeader) {
+  updateLayout(layout, boxedLayout, fixedSidenav, fixedHeader, children) {
     switch (layout) {
       case '1':
         return (
-          <App boxedLayout={boxedLayout} fixedSidenav={fixedSidenav} fixedHeader={fixedHeader} />
+          <App boxedLayout={boxedLayout} fixedSidenav={fixedSidenav} fixedHeader={fixedHeader}>
+            {children}
+          </App>
         );
       case '2':
-        return <AppV2 boxedLayout={boxedLayout} />;
+        return <AppV2 boxedLayout={boxedLayout}>{children}</AppV2>;
       case '3':
-        return <HeaderContentFooter boxedLayout={boxedLayout} fixedHeader={fixedHeader} />;
+        return (
+          <HeaderContentFooter boxedLayout={boxedLayout} fixedHeader={fixedHeader}>
+            {children}
+          </HeaderContentFooter>
+        );
       case '4':
-        return <ContentOnly boxedLayout={boxedLayout} />;
+        return <ContentOnly boxedLayout={boxedLayout}>{children}</ContentOnly>;
       default:
-        return <App />;
+        return <App>{children}</App>;
     }
   }
 
@@ -34,11 +40,11 @@ class AppLayout extends React.Component<any, any> {
   }
 
   render() {
-    const { layout, boxedLayout, fixedSidenav, fixedHeader } = this.props;
+    const { layout, boxedLayout, fixedSidenav, fixedHeader, children } = this.props;
 
     return (
       <div id="app-layout-container">
-        {this.updateLayout(layout, boxedLayout, fixedSidenav, fixedHeader)}
+        {this.updateLayout(layout, boxedLayout, fixedSidenav, fixedHeader, children)}
         {this.isShowCustomizer()}
       </div>
     );

@@ -8,8 +8,7 @@ import AppSidenav from '../Sidenav';
 
 class AppLayout extends React.Component<any, any> {
   render() {
-    const { boxedLayout, fixedSidenav, fixedHeader } = this.props;
-
+    const { boxedLayout, fixedSidenav, fixedHeader, children } = this.props;
     return (
       <Layout
         id="app-layout"
@@ -24,14 +23,14 @@ class AppLayout extends React.Component<any, any> {
           <Layout>
             <AppHeader />
             <Layout>
-              <AppContent />
+              <AppContent>{children}</AppContent>
               <AppFooter />
             </Layout>
           </Layout>
         ) : (
           <Layout>
             <AppHeader />
-            <AppContent />
+            <AppContent>{children}</AppContent>
             <AppFooter />
           </Layout>
         )}

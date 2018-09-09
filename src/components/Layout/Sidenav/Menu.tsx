@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Menu } from 'antd';
+import { withRouter } from 'react-router';
 // import APPCONFIG from 'constants/appConfig';
 import DEMO from '../../../demoData';
 // import { toggleOffCanvasMobileNav } from 'actions/settingsActions';
@@ -25,35 +26,23 @@ const SubMenu = Menu.SubMenu;
 
 class AppMenu extends React.Component<any, any> {
   // list for AccordionNav
-  rootMenuItemKeys = [
-    // without submenu
-    '/app/dashboard',
-    '/app/ui-overview',
-    '/app/calendar'
-  ];
-  rootSubmenuKeys = [
-    '/app/layout',
-    '/app/foundation',
-    '/app/card',
-    '/app/ui',
-    '/app/form',
-    '/app/feedback',
-    '/app/table',
-    '/app/chart',
-    '/app/page',
-    '/app/ecommerce',
-    '/user',
-    '/exception',
-    '/app/menu'
-  ];
+  rootMenuItemKeys = ['/vote/count', '/vote/modify', '/vote/result', '/vote/signup-info'];
+  rootSubmenuKeys = [];
 
   state = {
-    openKeys: ['/app/dashboard']
+    openKeys: []
   };
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      openKeys: [this.props.location.hash.replace('#', '')]
+    };
+  }
 
   onOpenChange = (openKeys) => {
     // AccordionNav
-    // console.log(openKeys)
+
     const latestOpenKey = openKeys.find((key) => this.state.openKeys.indexOf(key) === -1);
     if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       this.setState({ openKeys });
@@ -67,8 +56,10 @@ class AppMenu extends React.Component<any, any> {
   onMenuItemClick = (item) => {
     // AccordionNav
     const itemKey = item.key;
+
     if (this.rootMenuItemKeys.indexOf(itemKey) >= 0) {
       this.setState({ openKeys: [itemKey] });
+      // this.props.history.push(`${itemKey}`);
     }
 
     //
@@ -123,10 +114,11 @@ class AppMenu extends React.Component<any, any> {
 
   render() {
     const { collapsedNav, colorOption, location } = this.props;
+    // console.log('--------', location);
     // const mode = collapsedNav ? 'vertical' : 'inline';
     const menuTheme =
       ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0 ? 'light' : 'dark';
-    const currentPathname = location.pathname;
+    const currentPathname = location.hash.replace('#', '');
 
     const menuProps = collapsedNav
       ? {}
@@ -145,26 +137,26 @@ class AppMenu extends React.Component<any, any> {
         onClick={this.onMenuItemClick}
         selectedKeys={[currentPathname]}
       >
-        <Menu.Item key="/app/modify">
-          <Button className="nav-item" href="#/app/modify">
+        <Menu.Item key="/vote/modify">
+          <Button className="nav-item" href="#/vote/modify">
             <MaterialIcon icon="how_to_vote" />
             <span className="nav-text">编辑投票</span>
           </Button>
         </Menu.Item>
-        <Menu.Item key="/app/result">
-          <Button className="nav-item" href="#/app/result">
+        <Menu.Item key="/vote/result">
+          <Button className="nav-item" href="#/vote/result">
             <MaterialIcon icon="ballot" />
             <span className="nav-text">投票结果</span>
           </Button>
         </Menu.Item>
-        <Menu.Item key="/app/count">
-          <Button className="nav-item" href="#/app/count">
+        <Menu.Item key="/vote/count">
+          <Button className="nav-item" href="#/vote/count">
             <MaterialIcon icon="poll" />
             <span className="nav-text">统计分析</span>
           </Button>
         </Menu.Item>
-        <Menu.Item key="/app/signup-info">
-          <Button className="nav-item" href="#/app/signup-info">
+        <Menu.Item key="/vote/signup-info">
+          <Button className="nav-item" href="#/vote/signup-info">
             <MaterialIcon icon="people" />
             <span className="nav-text">报名信息</span>
           </Button>
@@ -178,7 +170,7 @@ const mapStateToProps = (state) => {
   return {
     collapsedNav: state.settings.collapsedNav,
     colorOption: state.settings.colorOption,
-    location: state.router.location
+    location: state.location
   };
 };
 
