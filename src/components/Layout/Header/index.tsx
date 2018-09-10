@@ -35,9 +35,9 @@ class AppHeader extends React.Component<any, any> {
   };
 
   render() {
-    const { headerShadow, colorOption, showLogo } = this.props;
+    const { headerShadow, colorOption, showLogo, showMenuCtl } = this.props;
     const { anchorEl } = this.state;
-
+    console.log('showMenuCtl', showMenuCtl);
     return (
       <Header
         className={classnames('app-header', {
@@ -57,29 +57,35 @@ class AppHeader extends React.Component<any, any> {
         >
           <div className="header-left">
             <div className="list-unstyled list-inline">
-              {showLogo && [
-                <Logo key="logo" />,
-                <div key="divider" className="divider-vertical" />
+              {showLogo && [<Logo key="logo" />]}
+              {showMenuCtl && [
+                <a
+                  href={DEMO.link}
+                  className="list-inline-item d-none d-md-inline-block"
+                  onClick={this.onToggleCollapsedNav}
+                  key="pc"
+                >
+                  <MaterialIcon icon="menu" className="list-icon" />
+                </a>,
+                <a
+                  href={DEMO.link}
+                  className="list-inline-item d-md-none"
+                  onClick={this.onToggleOffCanvasMobileNav}
+                  key="mobile"
+                >
+                  <MaterialIcon icon="menu" className="list-icon" />
+                </a>
               ]}
-              <a
-                href={DEMO.link}
-                className="list-inline-item d-none d-md-inline-block"
-                onClick={this.onToggleCollapsedNav}
-              >
-                <MaterialIcon icon="menu" className="list-icon" />
-              </a>
-              <a
-                href={DEMO.link}
-                className="list-inline-item d-md-none"
-                onClick={this.onToggleOffCanvasMobileNav}
-              >
-                <MaterialIcon icon="menu" className="list-icon" />
-              </a>
             </div>
           </div>
 
           <div className="header-right">
             <div className="list-unstyled list-inline">
+              <Tooltip placement="bottom" title="投票列表">
+                <a href="#/app/ui-overview" className="list-inline-item">
+                  <MaterialIcon icon="how_to_vote" className="list-icon" />
+                </a>
+              </Tooltip>
               <li className="list-inline-item search-box seach-box-right d-none d-md-inline-block">
                 <div className="search-box-inner">
                   <div className="search-box-icon">

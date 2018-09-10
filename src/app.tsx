@@ -22,6 +22,11 @@ let Account = loadable({
   loading: LoadingComponent
 });
 
+let List = loadable({
+  loader: () => import(/* webpackChunkName: "list" */ './modules/list/index'),
+  loading: LoadingComponent
+});
+
 import Vote from './modules/vote';
 
 export interface AppProps {
@@ -59,6 +64,7 @@ class App extends React.Component<AppProps, any> {
             'theme-dark': theme === 'dark'
           })}
         >
+          <Route path={`${match.url}list`} component={List} />
           <Route path={`${match.url}vote`} component={Vote} />
           <Route path={`${match.url}user`} component={Account} />
         </div>

@@ -10,7 +10,7 @@ const { Content } = Layout;
 
 class AppLayout extends React.Component<any, any> {
   render() {
-    const { boxedLayout } = this.props;
+    const { boxedLayout, showMenuCtl } = this.props;
 
     return (
       <Layout
@@ -19,7 +19,7 @@ class AppLayout extends React.Component<any, any> {
           'boxed-layout': boxedLayout
         })}
       >
-        <AppHeader showLogo={true} />
+        <AppHeader showLogo={true} showMenuCtl={showMenuCtl} />
         <AppBreadcrumb />
         <Content className="app-content">
           <Layout>

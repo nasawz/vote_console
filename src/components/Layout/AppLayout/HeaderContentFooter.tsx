@@ -7,7 +7,7 @@ import AppFooter from '../Footer';
 
 class AppLayout extends React.Component<any, any> {
   render() {
-    const { boxedLayout, fixedHeader } = this.props;
+    const { boxedLayout, fixedHeader, showMenuCtl } = this.props;
 
     return (
       <Layout
@@ -17,7 +17,7 @@ class AppLayout extends React.Component<any, any> {
           'fixed-header': fixedHeader
         })}
       >
-        <AppHeader showLogo={true} />
+        <AppHeader showLogo={true} showMenuCtl={showMenuCtl} />
         <AppContent />
         <AppFooter />
       </Layout>

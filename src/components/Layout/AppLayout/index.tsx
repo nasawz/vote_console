@@ -13,22 +13,35 @@ class AppLayout extends React.Component<any, any> {
     switch (layout) {
       case '1':
         return (
-          <App boxedLayout={boxedLayout} fixedSidenav={fixedSidenav} fixedHeader={fixedHeader}>
+          <App
+            boxedLayout={boxedLayout}
+            showMenuCtl={true}
+            fixedSidenav={fixedSidenav}
+            fixedHeader={fixedHeader}
+          >
             {children}
           </App>
         );
       case '2':
-        return <AppV2 boxedLayout={boxedLayout}>{children}</AppV2>;
+        return (
+          <AppV2 boxedLayout={boxedLayout} showMenuCtl={true}>
+            {children}
+          </AppV2>
+        );
       case '3':
         return (
-          <HeaderContentFooter boxedLayout={boxedLayout} fixedHeader={fixedHeader}>
+          <HeaderContentFooter
+            boxedLayout={boxedLayout}
+            fixedHeader={fixedHeader}
+            showMenuCtl={false}
+          >
             {children}
           </HeaderContentFooter>
         );
       case '4':
         return <ContentOnly boxedLayout={boxedLayout}>{children}</ContentOnly>;
       default:
-        return <App>{children}</App>;
+        return <App showMenuCtl={true}>{children}</App>;
     }
   }
 

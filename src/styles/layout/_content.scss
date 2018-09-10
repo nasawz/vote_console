@@ -30,11 +30,11 @@
 // Chapter, Article
 // ------------------------------------
 
-.page-title {
-  &:before {
-    content: 'Material ';
-  }
-}
+// .page-title {
+//   &:before {
+//     content: 'Material ';
+//   }
+// }
 
 .chapter {
   // Use with QueueAnim, when article border-top no longer work
@@ -57,7 +57,7 @@
     }
 
     &.article-dark {
-      background-color: rgba(0,0,0,.015);
+      background-color: rgba(0, 0, 0, 0.015);
     }
 
     &.article-bordered {
@@ -84,11 +84,11 @@
     }
 
     .badge {
-      position:relative;
+      position: relative;
       top: -4px; // hack for vertical centering
       background-color: $gray-300;
       font-size: $font-size-sm;
-      padding: .35rem .6rem;
+      padding: 0.35rem 0.6rem;
       color: $body-color;
     }
   }
@@ -98,11 +98,11 @@
   font-size: 1.5rem;
   font-weight: normal;
   line-height: 2rem;
-  margin: .6em 0;
+  margin: 0.6em 0;
   color: $primary;
 }
 
-// 
+//
 // TMPL: <div className="article-title-v2 text-center">Section 1 <span className="triangle triangle-down"></span></div>
 .article-title-v2 {
   font-size: $font-size-sm;
@@ -110,7 +110,7 @@
   letter-spacing: 1px;
   line-height: 25px;
   font-weight: $font-weight-600;
-  margin-bottom: .3125rem;
+  margin-bottom: 0.3125rem;
 
   .triangle-down {
     position: relative;

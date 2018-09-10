@@ -2,7 +2,6 @@ import _ from 'lodash';
 
 export const settings = {
   state: {
-    demo: 0,
     layout: '1', // String: 1, 2, 3, 4 and add your own
     boxedLayout: false, // Boolean: true, false
     fixedSidenav: false, // Boolean: true, false
@@ -18,10 +17,10 @@ export const settings = {
   },
   reducers: {
     changeLayout(state, layoutOption) {
-      return layoutOption;
+      return _.create(state, layoutOption);
     },
     toggleBoxedLayout(state, isBoxedLayout) {
-      state.isBoxedLayout = isBoxedLayout;
+      state.boxedLayout = isBoxedLayout;
       return state;
     },
     toggleCollapsedNav(state, isCollapsedNav) {
@@ -36,7 +35,7 @@ export const settings = {
       return state;
     },
     toggleFixedHeader(state, isFixedHeader) {
-      state.isFixedHeader = isFixedHeader;
+      state.fixedHeader = isFixedHeader;
       return state;
     },
     changeSidenavWidth(state, sidenavWidth) {
@@ -44,8 +43,7 @@ export const settings = {
       return state;
     },
     toggleOffCanvasMobileNav(state, isOffCanvasMobileNav) {
-      state.isOffCanvasMobileNav = isOffCanvasMobileNav;
-      return state;
+      return _.create(state, { offCanvasMobileNav: isOffCanvasMobileNav });
     },
     changeColorOption(state, colorOption) {
       state.colorOption = colorOption;
