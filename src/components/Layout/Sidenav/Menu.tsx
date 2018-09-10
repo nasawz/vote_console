@@ -140,25 +140,29 @@ class AppMenu extends React.Component<any, any> {
         <Menu.Item key="/vote/modify">
           <Button className="nav-item" href="#/vote/modify">
             <MaterialIcon icon="how_to_vote" />
-            <span className="nav-text">编辑投票</span>
+            {/* <span className="nav-text">编辑投票</span> */}
+            <span className="nav-text">demo1</span>
           </Button>
         </Menu.Item>
         <Menu.Item key="/vote/result">
           <Button className="nav-item" href="#/vote/result">
             <MaterialIcon icon="ballot" />
-            <span className="nav-text">投票结果</span>
+            {/* <span className="nav-text">投票结果</span> */}
+            <span className="nav-text">demo2</span>
           </Button>
         </Menu.Item>
         <Menu.Item key="/vote/count">
           <Button className="nav-item" href="#/vote/count">
             <MaterialIcon icon="poll" />
-            <span className="nav-text">统计分析</span>
+            {/* <span className="nav-text">统计分析</span> */}
+            <span className="nav-text">demo3</span>
           </Button>
         </Menu.Item>
         <Menu.Item key="/vote/signup-info">
           <Button className="nav-item" href="#/vote/signup-info">
             <MaterialIcon icon="people" />
-            <span className="nav-text">报名信息</span>
+            {/* <span className="nav-text">报名信息</span> */}
+            <span className="nav-text">demo4</span>
           </Button>
         </Menu.Item>
       </Menu>

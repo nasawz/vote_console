@@ -5,7 +5,7 @@ import AppContent from '../Content';
 
 class AppLayout extends React.Component<any, any> {
   render() {
-    const { boxedLayout } = this.props;
+    const { boxedLayout, children } = this.props;
 
     return (
       <Layout
@@ -14,7 +14,7 @@ class AppLayout extends React.Component<any, any> {
           'boxed-layout': boxedLayout
         })}
       >
-        <AppContent />
+        <AppContent>{children}</AppContent>
       </Layout>
     );
   }

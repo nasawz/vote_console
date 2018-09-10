@@ -11,7 +11,7 @@ const AppFooter = () => (
       <span className="small">
         © {year}{' '}
         <a className="brand" target="_blank" href={DEMO.productLink}>
-          {'VOTE'}
+          {'Console'}
         </a>
       </span>
       <span className="small">

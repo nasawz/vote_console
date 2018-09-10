@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import QueueAnim from 'rc-queue-anim';
-import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -39,9 +38,16 @@ class Modify extends React.Component<ModifyProps, any> {
                   <Tab label="高级设置" />
                 </Tabs>
                 <div className="box-body">
-                  {value === 0 && <TabContainer>Item One</TabContainer>}
-                  {value === 1 && <TabContainer>Item Two</TabContainer>}
-                  {value === 2 && <TabContainer>Item Three</TabContainer>}
+                  <div className="grid-structure">
+                    <div className="row">
+                      <div className="col-md-8">
+                        {value === 0 && <TabContainer>Item One</TabContainer>}
+                        {value === 1 && <TabContainer>Item Two</TabContainer>}
+                        {value === 2 && <TabContainer>Item Three</TabContainer>}
+                      </div>
+                      <div className="col-md-4">preview</div>
+                    </div>
+                  </div>
                 </div>
               </section>
             </div>

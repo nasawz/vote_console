@@ -50,7 +50,7 @@ class AppSidenav extends React.Component<any, any> {
         >
           <Logo />
           <a href="#/" className="brand">
-            {'VOTE'}
+            {'Console'}
           </a>
         </section>
 

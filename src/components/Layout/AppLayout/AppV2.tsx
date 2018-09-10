@@ -10,7 +10,7 @@ const { Content } = Layout;
 
 class AppLayout extends React.Component<any, any> {
   render() {
-    const { boxedLayout, showMenuCtl } = this.props;
+    const { boxedLayout, showMenuCtl, children } = this.props;
 
     return (
       <Layout
@@ -24,7 +24,7 @@ class AppLayout extends React.Component<any, any> {
         <Content className="app-content">
           <Layout>
             <AppSidenav />
-            <AppContent />
+            <AppContent>{children}</AppContent>
           </Layout>
         </Content>
         <AppFooter />

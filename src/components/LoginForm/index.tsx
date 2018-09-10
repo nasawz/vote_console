@@ -20,7 +20,7 @@ class NormalForm extends React.Component {
     return (
       <section className="form-v1-container">
         <h2>Login to Continue</h2>
-        <p className="lead">Welcome back, sign in with your {'VOTE'} account</p>
+        <p className="lead">Welcome back, sign in with your {'Console'} account</p>
 
         <a href={DEMO.link} className="btn btn-block icon-btn-v2 bg-facebook mb-2">
           <Icon type="facebook" />
