@@ -14,8 +14,11 @@ class List extends React.Component<ListProps, any> {
   public render() {
     return (
       <AppLayout>
-        <div className="container-fluid no-breadcrumb">
+        <div className="container-fluid no-breadcrumb chapter">
           <article className="article">
+            <h2 className="article-title" style={{ paddingTop: '1rem' }}>
+              Example
+            </h2>
             <QueueAnim type="bottom" className="ui-animate mb-4">
               <div key="1" className="mb-4">
                 <section className="box box-default">
