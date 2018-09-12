@@ -15,7 +15,6 @@
     "@rematch/core": "^1.0.0-beta.4",
     "antd": "^3.8.2",
     "classnames": "^2.2.6",
-    "connected-react-router": "^4.4.1",
     "core-js": "^2.5.7",
     "date-fns": "2.0.0-alpha.7",
     "downshift": "^2.1.1",
@@ -28,8 +27,7 @@
     "react-loadable": "^5.5.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-router-redux": "^4.0.8"
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@material/elevation": "^0.38.0",
