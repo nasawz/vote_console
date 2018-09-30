@@ -23,6 +23,7 @@
     "material-ui-pickers": "1.0.0-rc.11",
     "parse": "^2.1.0",
     "prop-types": "^15.6.2",
+    "qrcode.react": "^0.8.0",
     "rc-queue-anim": "^1.6.5",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
