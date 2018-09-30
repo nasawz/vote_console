@@ -10,29 +10,29 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MaterialIcon from '../MaterialIcon';
 import { Icon } from 'antd';
 
-class NormalForm extends React.Component {
+class NormalForm extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      pwd: ''
+    };
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.onLogin({
+      name: this.state.name,
+      pwd: this.state.pwd
+    });
     // console.log(e)
     // this.props.history.push(DEMO.home2);
   };
   render() {
     return (
-      <section className="form-v1-container">
-        <h2>Login to Continue</h2>
-        <p className="lead">Welcome back, sign in with your {'Console'} account</p>
-
-        <a href={DEMO.link} className="btn btn-block icon-btn-v2 bg-facebook mb-2">
-          <Icon type="facebook" />
-          <span className="btn-text">Login with Facebook</span>
-        </a>
-        <a href={DEMO.link} className="btn btn-block icon-btn-v2 bg-twitter">
-          <Icon type="twitter" />
-          <span className="btn-text">Login with Twitter</span>
-        </a>
-        <div className="divider divider-with-content my-4">
-          <span className="divider-inner-content">OR</span>
-        </div>
+      <section className="form-v1-container" style={{ minWidth: '400px' }}>
+        <h2>VOTE</h2>
+        {/* <p className="lead">Welcome back, sign in with your {'Console'} account</p> */}
 
         <form onSubmit={this.handleSubmit} className="form-v1">
           <div className="form-group">
@@ -40,7 +40,13 @@ class NormalForm extends React.Component {
               <div className="input-group-icon">
                 <MaterialIcon icon="account_circle" />
               </div>
-              <TextField id="login2-name" label="Name" fullWidth autoComplete="off" />
+              <TextField
+                onChange={(e) => this.setState({ name: e.target.value })}
+                id="login2-name"
+                label="用户名"
+                fullWidth
+                autoComplete="off"
+              />
             </div>
           </div>
           <div className="form-group">
@@ -49,32 +55,33 @@ class NormalForm extends React.Component {
                 <MaterialIcon icon="lock" />
               </div>
               <TextField
+                onChange={(e) => this.setState({ pwd: e.target.value })}
                 id="login2-password"
-                label="Password"
+                label="密码"
                 type="password"
                 fullWidth
                 autoComplete="off"
               />
             </div>
           </div>
-          <div>
+          {/* <div>
             <FormControlLabel
               control={<Checkbox defaultChecked value="login2-remember" color="primary" />}
-              label="Remember Me"
+              label="记住我"
             />
-          </div>
+          </div> */}
           <div className="form-group">
             <Button variant="contained" color="primary" type="submit" className="btn-cta btn-block">
-              Log in
+              登录
             </Button>
           </div>
         </form>
-        <p className="additional-info">
-          Don't have an account yet? <a href={DEMO.signUp}>Sign up</a>
+        {/* <p className="additional-info">
+          没有账号? <a href={DEMO.signUp}>立即注册</a>
         </p>
         <p className="additional-info">
-          Forgot your username or password? <a href={DEMO.forgotPassword}>Reset password</a>
-        </p>
+          忘记密码? <a href={DEMO.forgotPassword}>重置密码</a>
+        </p> */}
       </section>
     );
   }

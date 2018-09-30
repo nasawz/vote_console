@@ -35,9 +35,8 @@ class AppHeader extends React.Component<any, any> {
   };
 
   render() {
-    const { headerShadow, colorOption, showLogo, showMenuCtl } = this.props;
+    const { headerShadow, colorOption, showLogo, showMenuCtl, user } = this.props;
     const { anchorEl } = this.state;
-    console.log('showMenuCtl', showMenuCtl);
     return (
       <Header
         className={classnames('app-header', {
@@ -82,11 +81,11 @@ class AppHeader extends React.Component<any, any> {
           <div className="header-right">
             <div className="list-unstyled list-inline">
               <Tooltip placement="bottom" title="投票列表">
-                <a href="#/app/ui-overview" className="list-inline-item">
+                <a href="#/list" className="list-inline-item">
                   <MaterialIcon icon="how_to_vote" className="list-icon" />
                 </a>
               </Tooltip>
-              <li className="list-inline-item search-box seach-box-right d-none d-md-inline-block">
+              {/* <li className="list-inline-item search-box seach-box-right d-none d-md-inline-block">
                 <div className="search-box-inner">
                   <div className="search-box-icon">
                     <MaterialIcon icon="search" />
@@ -94,8 +93,8 @@ class AppHeader extends React.Component<any, any> {
                   <input type="text" placeholder="搜索..." />
                   <span className="input-bar" />
                 </div>
-              </li>
-              <Popover
+              </li> */}
+              {/* <Popover
                 placement="bottomRight"
                 content={<Notifications />}
                 trigger="click"
@@ -106,7 +105,7 @@ class AppHeader extends React.Component<any, any> {
                     <MaterialIcon icon="notifications_none" className="header-icon-notification" />
                   </Badge>
                 </a>
-              </Popover>
+              </Popover> */}
               <a className="list-inline-item" href={DEMO.link}>
                 <div
                   className="avatar"
@@ -114,8 +113,8 @@ class AppHeader extends React.Component<any, any> {
                   aria-haspopup="true"
                   onClick={this.handleClick}
                 >
-                  <img src="assets/images-demo/g1-sm.jpg" alt="avatar" className="avatar-img" />
-                  <span className="avatar-text d-none d-md-inline">{DEMO.user}</span>
+                  {/* <img src="assets/images-demo/g1-sm.jpg" alt="avatar" className="avatar-img" /> */}
+                  <span className="avatar-text d-none d-md-inline">{user.username}</span>
                 </div>
                 <Menu
                   id="app-header-menu"
@@ -126,7 +125,7 @@ class AppHeader extends React.Component<any, any> {
                 >
                   <div className="divider divider-solid my-1 d-block d-md-none" />
 
-                  <MenuItem onClick={this.handleClose}>
+                  {/* <MenuItem onClick={this.handleClose}>
                     <a href={DEMO.headerLink.about}>
                       <MaterialIcon icon="info" />
                       关于
@@ -137,10 +136,10 @@ class AppHeader extends React.Component<any, any> {
                       <MaterialIcon icon="help" />
                       帮助
                     </a>
-                  </MenuItem>
+                  </MenuItem> */}
                   <div className="divider divider-solid my-1" />
                   <MenuItem onClick={this.handleClose}>
-                    <a href={DEMO.headerLink.signOut}>
+                    <a href="javascript:;" onClick={this.props.logout}>
                       <MaterialIcon icon="forward" />
                       退出
                     </a>
@@ -159,16 +158,21 @@ const mapStateToProps = (state) => ({
   offCanvasMobileNav: state.settings.offCanvasMobileNav,
   collapsedNav: state.settings.collapsedNav,
   headerShadow: state.settings.headerShadow,
-  colorOption: state.settings.colorOption
+  colorOption: state.settings.colorOption,
+  user: state.user.user
 });
 
-const mapDispatchToProps = ({ settings: { toggleCollapsedNav, toggleOffCanvasMobileNav } }) => ({
+const mapDispatchToProps = ({
+  settings: { toggleCollapsedNav, toggleOffCanvasMobileNav },
+  user: { logoutAsync }
+}) => ({
   handleToggleCollapsedNav: (isCollapsedNav) => {
     toggleCollapsedNav(isCollapsedNav);
   },
   handleToggleOffCanvasMobileNav: (isOffCanvasMobileNav) => {
     toggleOffCanvasMobileNav(isOffCanvasMobileNav);
-  }
+  },
+  logout: logoutAsync
 });
 
 export default connect(

@@ -6,6 +6,7 @@ import loadable from 'react-loadable';
 import AppLayout from '../../components/Layout/AppLayout';
 
 import LoadingComponent from '../../components/Loading';
+import Auth from '../common/auth';
 
 let Modify = loadable({
   loader: () => import(/* webpackChunkName: "modify" */ './pages/modify'),
@@ -39,12 +40,14 @@ class Page extends React.Component<PageProps, any> {
   public render() {
     let { match } = this.props;
     return (
-      <AppLayout>
-        <Route path={`${match.url}/modify`} component={Modify} />
-        <Route path={`${match.url}/count`} component={Count} />
-        <Route path={`${match.url}/result`} component={Result} />
-        <Route path={`${match.url}/signup-info`} component={SignupInfo} />
-      </AppLayout>
+      <Auth>
+        <AppLayout>
+          <Route path={`${match.url}/modify`} component={Modify} />
+          <Route path={`${match.url}/count`} component={Count} />
+          <Route path={`${match.url}/result`} component={Result} />
+          <Route path={`${match.url}/signup-info`} component={SignupInfo} />
+        </AppLayout>
+      </Auth>
     );
   }
 }

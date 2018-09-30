@@ -41,7 +41,7 @@ class App extends React.Component<AppProps, any> {
     const { match, location, theme } = this.props;
     const isRoot = location.pathname === '/' ? true : false;
     if (isRoot) {
-      return <Redirect to={'/vote/modify'} />;
+      return <Redirect to={'/list'} />;
     }
     let materialUITheme;
     switch (theme) {
